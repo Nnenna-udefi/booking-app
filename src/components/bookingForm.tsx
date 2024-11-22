@@ -1,0 +1,118 @@
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+type BookingData = {
+  service: string;
+  date: string;
+  time: string;
+};
+
+type BookingFormProps = {
+  onSubmit: (data: BookingData) => void;
+  initialService?: string;
+};
+
+export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
+  const router = useRouter();
+  const [service, setService] = useState(initialService);
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState<BookingData | null>(
+    null
+  );
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (service && date && time) {
+      const bookingData = { service, date, time };
+      onSubmit(bookingData);
+      setBookingDetails(bookingData);
+      setShowModal(true);
+      resetForm();
+    }
+  };
+
+  const resetForm = () => {
+    setService(""), setTime(""), setDate("");
+  };
+
+  const handleRedirect = () => {
+    setShowModal(false);
+    router.push("/");
+  };
+  return (
+    <div className="p-8 flex flex-col justify-center items-center">
+      <h1 className="text-3xl text-center mb-4">Book Your Service</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4 w-3/4">
+        {service ? (
+          <div className="flex gap-2 items-center text-lg">
+            <label className="text-lg">Service:</label>
+            <p className="font-bold">{service}</p>
+          </div>
+        ) : (
+          <div>
+            {" "}
+            <label className="text-lg">Select a Service:</label>
+            <br />
+            <select
+              value={service}
+              onChange={(e) => setService(e.target.value)}
+              className="border rounded my-2 w-full p-2 bg-white"
+            >
+              <option value="">Choose Service</option>
+              <option value="Big Box Braids">Big Box Braids</option>
+              <option value="Small Knotless Box Braids">
+                Small Knotless Box Braids
+              </option>
+              <option value="Half Conrows">Half Conrows</option>
+              <option value="Short Goddess Braids">Short Goddess Braids</option>
+            </select>
+          </div>
+        )}
+
+        <label className="text-lg">Select Date</label>
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className="border rounded p-2"
+        />
+
+        <label className="text-lg">Select Time</label>
+        <input
+          type="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          className="border rounded p-2"
+        />
+
+        <button type="submit" className="bg-black text-white rounded p-2 mt-4">
+          Confirm Booking
+        </button>
+      </form>
+
+      {showModal && bookingDetails && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-md">
+            <h2 className="text-2xl font-bold mb-4">Booking Confirmed!</h2>
+            <p>
+              <strong>Service:</strong> {bookingDetails.service}
+            </p>
+            <p>
+              <strong>Date:</strong> {bookingDetails.date}
+            </p>
+            <p>
+              <strong>Time:</strong> {bookingDetails.time}
+            </p>
+            <button
+              onClick={handleRedirect}
+              className="bg-blue-500 text-white p-2 rounded mt-4"
+            >
+              Back to Home
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
