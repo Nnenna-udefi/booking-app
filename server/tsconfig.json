@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS", // Use CommonJS if you want Node.js compatibility
+    "rootDir": "./",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true, // Ensure compatibility with CommonJS modules
+    "resolveJsonModule": true
+  }
+}

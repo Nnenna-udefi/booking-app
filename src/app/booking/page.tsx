@@ -1,4 +1,3 @@
-"use client";
 import { BookingForm } from "@/components/bookingForm";
 import { Nav } from "@/components/nav";
 import { BookingSection } from "@/utils/constants";
@@ -15,6 +14,7 @@ const BookingPage = () => {
     date: string;
     time: string;
   }) => {
+    console.log("Data sent to API:", data);
     const response = await fetch("/api/bookings", {
       method: "POST",
       headers: {
@@ -22,8 +22,14 @@ const BookingPage = () => {
       },
       body: JSON.stringify(data),
     });
+
+    if (!response.ok) {
+      console.error("Error posting booking:", response.statusText);
+      return;
+    }
+
     const result = await response.json();
-    console.log(result);
+    console.log("API response:", result);
   };
   return (
     <div>

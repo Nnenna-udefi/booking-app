@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 type BookingData = {
   service: string;
@@ -23,6 +23,7 @@ export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Form values:", { service, date, time });
     if (service && date && time) {
       const bookingData = { service, date, time };
       onSubmit(bookingData);
@@ -94,7 +95,11 @@ export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
       {showModal && bookingDetails && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-md">
-            <h2 className="text-2xl font-bold mb-4">Booking Confirmed!</h2>
+            <div>
+              {" "}
+              <h2 className="text-2xl font-bold mb-4">Booking Confirmed!</h2>
+              <X onClick={() => setShowModal(false)} />
+            </div>
             <p>
               <strong>Service:</strong> {bookingDetails.service}
             </p>
