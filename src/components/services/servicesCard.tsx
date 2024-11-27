@@ -11,7 +11,7 @@ export const ServicesCard = () => {
         {BookingSection.map((services) => (
           <div
             key={services.id}
-            className="flex border border-black w-3/4 my-4 hover:opacity-90"
+            className="md:flex block border border-black w-3/4 my-4 hover:opacity-90"
           >
             <Image
               src={services.img}

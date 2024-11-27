@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 type BookingData = {
@@ -95,7 +96,7 @@ export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
       {showModal && bookingDetails && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-md">
-            <div>
+            <div className="flex justify-between">
               {" "}
               <h2 className="text-2xl font-bold mb-4">Booking Confirmed!</h2>
               <X onClick={() => setShowModal(false)} />
