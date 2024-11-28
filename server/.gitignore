@@ -1,0 +1,25 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# Build output (if applicable)
+dist/
+build/
+
+# TypeScript output (if you're using TypeScript)
+*.tsbuildinfo
+
+# Coverage reports
+coverage/
+
+# IDE or editor settings (if you use VS Code)
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

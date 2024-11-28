@@ -1,6 +1,7 @@
 "use client";
 import { Search } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import { LoadingSpinner } from "../ui/loadingSpinner";
 
 export const Admin = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
@@ -36,7 +37,7 @@ export const Admin = () => {
       booking.id === id
         ? {
             ...booking,
-            status: newStatus, // Toggle the status
+            status: newStatus,
           }
         : booking
     );
@@ -48,7 +49,7 @@ export const Admin = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ status: newStatus }), // Use newStatus here
+        body: JSON.stringify({ status: newStatus }),
       });
 
       if (!response.ok) {
@@ -68,9 +69,17 @@ export const Admin = () => {
     (booking) => booking.status === "Awaiting"
   );
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return;
+  <div className="grid h-full place-items-center">
+    <LoadingSpinner />
+  </div>;
 
-  if (error) return <p> Error: {error}</p>;
+  if (error)
+    return (
+      <div className="grid h-full place-items-center">
+        <p> Error: {error}</p>
+      </div>
+    );
   return (
     <div className="bg-white p-8 ">
       <div className="flex font-bold justify-between border-b-2">

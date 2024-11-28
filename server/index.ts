@@ -1,62 +1,27 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import cors from "cors";
+import { connectToDatabase } from "./src/database";
+import { bookingsRouter } from "./src/routes/bookings";
 
 const app = express();
-const PORT = 5000;
-const cors = require("cors");
-const { v4: uuidv4 } = require("uuid");
+const PORT = process.env.PORT || 5000;
 
+// Middleware
 app.use(cors({ origin: "http://localhost:3000" }));
-// Middleware to parse JSON
 app.use(express.json());
 
-interface Booking {
-  id: string;
-  time: string;
-  date: string;
-  service: string;
-  name: string;
-  phoneNumber: string;
-  price: string;
-  status: string;
-}
+// Routes
+app.use("/api/bookings", bookingsRouter);
 
-let bookings: Booking[] = [];
-
-app.post("/api/bookings", (req: Request, res: Response) => {
-  const { time, date, service, name, phoneNumber, price, status } = req.body;
-
-  const newBooking: Booking = {
-    id: uuidv4(),
-    time,
-    date,
-    service,
-    name,
-    price,
-    phoneNumber,
-    status,
-  };
-  bookings.push(newBooking);
-  res.status(201).json({ message: "Booking confirmed", newBooking });
-});
-
-app.put("/api/bookings/:id", (req, res) => {
-  const { id } = req.params;
-  console.log(`Updating booking with ID: ${id}`);
-  const { status } = req.body;
-  console.log(`status: ${status}`);
-  const bookingIndex = bookings.findIndex((b) => b.id === id);
-
-  bookings[bookingIndex].status = status;
-  res.status(200).json({
-    message: "Booking status updated",
-    booking: bookings[bookingIndex],
+// Database Connection
+connectToDatabase()
+  .then(() => {
+    console.log("Connected to MongoDB Atlas");
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MongoDB Atlas:", err);
+    process.exit(1); // Exit if the database connection fails
   });
-});
-
-app.get("/api/bookings", (req: Request, res: Response) => {
-  res.json(bookings);
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
