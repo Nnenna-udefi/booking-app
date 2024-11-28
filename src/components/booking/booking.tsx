@@ -32,10 +32,10 @@ export const Booking = () => {
   };
   return (
     <div>
-      <Nav />
       <BookingForm
         onSubmit={handleBookingSubmit}
         initialService={service ? service.text : ""}
+        price={service ? service.price : ""}
       />
     </div>
   );

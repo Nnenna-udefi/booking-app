@@ -1,22 +1,24 @@
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-type BookingData = {
-  service: string;
-  date: string;
-  time: string;
-};
 
 type BookingFormProps = {
   onSubmit: (data: BookingData) => void;
   initialService?: string;
+  price: string;
 };
 
-export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
+export const BookingForm = ({
+  onSubmit,
+  initialService,
+  price,
+}: BookingFormProps) => {
   const router = useRouter();
   const [service, setService] = useState(initialService);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [bookingDetails, setBookingDetails] = useState<BookingData | null>(
     null
@@ -24,9 +26,9 @@ export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form values:", { service, date, time });
+
     if (service && date && time) {
-      const bookingData = { service, date, time };
+      const bookingData = { service, date, time, name, phoneNumber, price };
       onSubmit(bookingData);
       setBookingDetails(bookingData);
       setShowModal(true);
@@ -35,13 +37,40 @@ export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
   };
 
   const resetForm = () => {
-    setService(""), setTime(""), setDate("");
+    setService(""), setTime(""), setDate(""), setPhoneNumber(""), setName("");
   };
 
   const handleRedirect = () => {
     setShowModal(false);
     router.push("/");
   };
+
+  const InputItems = [
+    {
+      label: "Select Date",
+      value: date,
+      type: "date",
+      change: setDate,
+    },
+    {
+      label: "Select Time",
+      value: time,
+      type: "time",
+      change: setTime,
+    },
+    {
+      label: "Enter Name",
+      value: name,
+      type: "text",
+      change: setName,
+    },
+    {
+      label: "Enter Phone Number",
+      value: phoneNumber,
+      type: "text",
+      change: setPhoneNumber,
+    },
+  ];
   return (
     <div className="p-8 flex flex-col justify-center items-center">
       <h1 className="text-3xl text-center mb-4">Book Your Service</h1>
@@ -72,24 +101,30 @@ export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
           </div>
         )}
 
-        <label className="text-lg">Select Date</label>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="border rounded p-2"
-        />
+        {InputItems.map((items, index) => (
+          <div key={index}>
+            <label className="text-lg">{items.label}</label>
+            <input
+              type={items.type}
+              value={items.value}
+              onChange={(e) => items.change(e.target.value)}
+              className="border rounded p-2 w-full"
+            />
+          </div>
+        ))}
 
-        <label className="text-lg">Select Time</label>
-        <input
-          type="time"
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
-          className="border rounded p-2"
-        />
-
-        <button type="submit" className="bg-black text-white rounded p-2 mt-4">
-          Confirm Booking
+        <button
+          type="submit"
+          className={`rounded p-2 mt-4 ${
+            service && date && time && name && phoneNumber
+              ? "bg-black text-white"
+              : "bg-gray-400 text-gray-700 cursor-not-allowed"
+          }`}
+          disabled={!(service && date && time && name && phoneNumber)}
+        >
+          {service && date && time && name && phoneNumber
+            ? "Confirm Booking"
+            : "Complete All Fields"}
         </button>
       </form>
 
@@ -106,6 +141,9 @@ export const BookingForm = ({ onSubmit, initialService }: BookingFormProps) => {
             </p>
             <p>
               <strong>Date:</strong> {bookingDetails.date}
+            </p>
+            <p>
+              <strong>Price:</strong> {bookingDetails.price}
             </p>
             <p>
               <strong>Time:</strong> {bookingDetails.time}
