@@ -1,5 +1,5 @@
 import React from "react";
-import { Copyright } from "lucide-react";
+import { Copyright, Facebook, Instagram } from "lucide-react";
 
 export const Footer = () => {
   return (
@@ -8,6 +8,10 @@ export const Footer = () => {
         <p>Email Address: dcbraids@gmail.com</p>
         <p>Phone Number: +23444566667</p>
         <p>Address: 2, ho sure, Queens London</p>
+      </div>
+      <div className="flex gap-10 my-3">
+        <Facebook />
+        <Instagram />
       </div>
       <div className="my-4 flex gap-2">
         <Copyright />

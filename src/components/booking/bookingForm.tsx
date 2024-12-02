@@ -18,6 +18,7 @@ export const BookingForm = ({
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [bookingDetails, setBookingDetails] = useState<BookingData | null>(
@@ -28,7 +29,15 @@ export const BookingForm = ({
     e.preventDefault();
 
     if (service && date && time) {
-      const bookingData = { service, date, time, name, phoneNumber, price };
+      const bookingData = {
+        service,
+        date,
+        time,
+        name,
+        email,
+        phoneNumber,
+        price,
+      };
       onSubmit(bookingData);
       setBookingDetails(bookingData);
       setShowModal(true);
@@ -37,7 +46,12 @@ export const BookingForm = ({
   };
 
   const resetForm = () => {
-    setService(""), setTime(""), setDate(""), setPhoneNumber(""), setName("");
+    setService(""),
+      setTime(""),
+      setDate(""),
+      setPhoneNumber(""),
+      setName(""),
+      setEmail("");
   };
 
   const handleRedirect = () => {
@@ -46,6 +60,24 @@ export const BookingForm = ({
   };
 
   const InputItems = [
+    {
+      label: "Enter Name",
+      value: name,
+      type: "text",
+      change: setName,
+    },
+    {
+      label: "Enter Email Address",
+      value: email,
+      type: "email",
+      change: setEmail,
+    },
+    {
+      label: "Enter Phone Number",
+      value: phoneNumber,
+      type: "text",
+      change: setPhoneNumber,
+    },
     {
       label: "Select Date",
       value: date,
@@ -58,22 +90,17 @@ export const BookingForm = ({
       type: "time",
       change: setTime,
     },
-    {
-      label: "Enter Name",
-      value: name,
-      type: "text",
-      change: setName,
-    },
-    {
-      label: "Enter Phone Number",
-      value: phoneNumber,
-      type: "text",
-      change: setPhoneNumber,
-    },
   ];
   return (
     <div className="p-8 flex flex-col justify-center items-center">
       <h1 className="text-3xl text-center mb-4">Book Your Service</h1>
+      <p>
+        Please fill out the form below to schedule an appointment with Super
+        Hair Braiding. To better serve you, we will need at least 48 hours
+        notice prior to your appointment date. If this is a last minute booking,
+        please give us a call at (301) 559-2940 to confirm your appointment.
+        Walk-Ins are based on availabilty.
+      </p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4 w-3/4">
         {service ? (
           <div className="flex gap-2 items-center text-lg">
@@ -116,11 +143,11 @@ export const BookingForm = ({
         <button
           type="submit"
           className={`rounded p-2 mt-4 ${
-            service && date && time && name && phoneNumber
+            service && date && time && name && phoneNumber && email
               ? "bg-black text-white"
               : "bg-gray-400 text-gray-700 cursor-not-allowed"
           }`}
-          disabled={!(service && date && time && name && phoneNumber)}
+          disabled={!(service && date && time && name && phoneNumber && email)}
         >
           {service && date && time && name && phoneNumber
             ? "Confirm Booking"

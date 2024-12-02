@@ -5,7 +5,8 @@ import { getDatabase } from "../database";
 import { ObjectId } from "mongodb";
 
 export const createBooking = async (req: Request, res: Response) => {
-  const { time, date, service, name, phoneNumber, price, status } = req.body;
+  const { time, date, service, name, phoneNumber, email, price, status } =
+    req.body;
   const newBooking = {
     time,
     date,
@@ -13,6 +14,7 @@ export const createBooking = async (req: Request, res: Response) => {
     name,
     phoneNumber,
     price,
+    email,
     status: "Awaiting",
   };
 

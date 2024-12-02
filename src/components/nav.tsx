@@ -13,7 +13,7 @@ const navItems = [
 export const Nav = () => {
   const pathname = usePathname();
   return (
-    <div className="flex justify-between py-5 px-8 bg-white">
+    <div className="flex justify-between items-center py-5 px-8 bg-white">
       <h1 className="italic text-xl font-bold ">DC</h1>
       <ul className="flex gap-6 underline">
         {navItems.map((items) => {
@@ -31,6 +31,9 @@ export const Nav = () => {
           );
         })}
       </ul>
+      <button className="bg-black text-white px-3 py-2 rounded-md">
+        <Link href="/booking">Book Now</Link>
+      </button>
     </div>
   );
 };

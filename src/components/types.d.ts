@@ -7,6 +7,7 @@ type Booking = {
   time: string;
   price: string;
   status: string;
+  email: string;
 };
 
 type BookingData = {
@@ -15,5 +16,6 @@ type BookingData = {
   date: string;
   time: string;
   name: string;
+  email: string;
   phoneNumber: string;
 };

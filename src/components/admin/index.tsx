@@ -123,6 +123,7 @@ export const Admin = () => {
                 <th className="py-3 px-4 text-sm font-semibold">
                   Phone Number
                 </th>
+                <th className="py-3 px-4 text-sm font-semibold">Email</th>
                 <th className="py-3 px-4 text-sm font-semibold">Date</th>
                 <th className="py-3 px-4 text-sm font-semibold">Time</th>
                 <th className="py-3 px-4 text-sm font-semibold">Price</th>
@@ -142,6 +143,7 @@ export const Admin = () => {
                     <td className="py-3 px-4">
                       {booking.phoneNumber || "N/A"}
                     </td>
+                    <td className="py-3 px-4">{booking.email || "N/A"}</td>
                     <td className="py-3 px-4">{booking.date || "N/A"}</td>
                     <td className="py-3 px-4">{booking.time || "N/A"}</td>
                     <td className="py-3 px-4">{booking.price || "N/A"}</td>
