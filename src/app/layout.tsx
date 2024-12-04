@@ -12,6 +12,22 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const ParkinsansBold = localFont({
+  src: "./fonts/Parkinsans-Bold.ttf",
+  variable: "--font-park-bold",
+  weight: "600",
+});
+const ParkinsansMedium = localFont({
+  src: "./fonts/Parkinsans-Medium.ttf",
+  variable: "--font-park-medium",
+  weight: "500",
+});
+
+const ParkinsansRegular = localFont({
+  src: "./fonts/Parkinsans-Regular.ttf",
+  variable: "--font-park-regular",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Home | DCHairs",
@@ -26,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ParkinsansBold.variable}  ${ParkinsansRegular.variable}  ${ParkinsansMedium.variable}antialiased`}
       >
         {children}
       </body>
