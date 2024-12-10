@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import logo from "@/assests/images/DC-logo-removebg.png";
+import Image from "next/image";
 
 const navItems = [
   { id: 1, text: "Home", href: "/" },
@@ -14,7 +16,7 @@ export const Nav = () => {
   const pathname = usePathname();
   return (
     <div className="flex text-lg justify-between items-center py-5 px-8 bg-white">
-      <h1 className="italic text-xl font-bold ">DC</h1>
+      <Image src={logo} alt="logo" className="w-32" />
       <ul className="flex gap-6 underline">
         {navItems.map((items) => {
           const isActive = pathname === items.href;
