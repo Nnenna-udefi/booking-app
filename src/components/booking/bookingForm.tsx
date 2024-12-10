@@ -1,3 +1,4 @@
+import { BookingSection } from "@/utils/constants";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -95,11 +96,11 @@ export const BookingForm = ({
     <div className="p-8 flex flex-col justify-center items-center">
       <h1 className="text-3xl text-center mb-4">Book Your Service</h1>
       <p>
-        Please fill out the form below to schedule an appointment with Super
-        Hair Braiding. To better serve you, we will need at least 48 hours
-        notice prior to your appointment date. If this is a last minute booking,
-        please give us a call at (301) 559-2940 to confirm your appointment.
-        Walk-Ins are based on availabilty.
+        Please fill out the form below to schedule an appointment with DC
+        Braiding. To better serve you, we will need at least 48 hours notice
+        prior to your appointment date. If this is a last minute booking, please
+        give us a call at (301) 559-2940 to confirm your appointment. Walk-Ins
+        are based on availabilty.
       </p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4 w-3/4">
         {service ? (
@@ -118,12 +119,16 @@ export const BookingForm = ({
               className="border rounded my-2 w-full p-2 bg-white"
             >
               <option value="">Choose Service</option>
-              <option value="Big Box Braids">Big Box Braids</option>
-              <option value="Small Knotless Box Braids">
-                Small Knotless Box Braids
-              </option>
-              <option value="Half Conrows">Half Conrows</option>
-              <option value="Short Goddess Braids">Short Goddess Braids</option>
+
+              {BookingSection.map((item) => (
+                <option
+                  key={item.id}
+                  value={item.text}
+                  className="bg-gray-800 text-white"
+                >
+                  {item.text}
+                </option>
+              ))}
             </select>
           </div>
         )}

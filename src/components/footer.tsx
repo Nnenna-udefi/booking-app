@@ -1,10 +1,21 @@
 import React from "react";
 import { Copyright, Facebook, Instagram } from "lucide-react";
+import Logo from "@/assests/images/logo-3.png";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
-    <div className="bg-black p-8 flex flex-col justify-between items-center text-center text-white">
-      <div className="md:flex block gap-6">
+    <div className="bg-gray-700 p-8 flex flex-col justify-between items-center text-center text-white">
+      <div className="w-[200px]">
+        <Image
+          src={Logo}
+          alt="logo"
+          layout="responsive"
+          width={100}
+          height={100}
+        />
+      </div>
+      <div className="md:flex block my-3 gap-6">
         <p>Email Address: dcbraids@gmail.com</p>
         <p>Phone Number: +23444566667</p>
         <p>Address: 2, ho sure, Queens London</p>
