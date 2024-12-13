@@ -1,30 +1,43 @@
 import React, { useEffect, useRef } from "react";
-import L from "leaflet";
+import mapboxgl from "mapbox-gl";
 
-const MapComponent = () => {
-  const mapRef = useRef<L.Map | null>(null); // Keep a reference to the map instance
+const Map = () => {
+  const mapContainerRef = useRef(null);
 
   useEffect(() => {
-    if (!mapRef.current) {
-      // Initialize the map only if it hasn't been initialized
-      mapRef.current = L.map("map").setView([51.505, -0.09], 13);
-
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(mapRef.current);
+    const accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+    if (!accessToken) {
+      throw new Error(
+        "Mapbox access token is not defined in environment variables."
+      );
     }
 
-    // Cleanup function to destroy the map instance when the component unmounts
-    return () => {
-      if (mapRef.current) {
-        mapRef.current.remove();
-        mapRef.current = null;
-      }
-    };
+    mapboxgl.accessToken = accessToken;
+    // Initialize map
+    const map = new mapboxgl.Map({
+      container: mapContainerRef.current as unknown as HTMLElement,
+      style: "mapbox://styles/nnennaudefi/cm4mj2mv2002c01r088gz3dee",
+      center: [-74.5, 40],
+      zoom: 10,
+    });
+
+    // Add navigation controls
+    map.addControl(new mapboxgl.NavigationControl(), "top");
+
+    // Cleanup on unmount
+    return () => map.remove();
   }, []);
 
-  return <div id="map" style={{ height: "100%", width: "100%" }} />;
+  return (
+    <div
+      ref={mapContainerRef}
+      style={{
+        width: "100%",
+        height: "500px",
+        borderRadius: "8px",
+      }}
+    />
+  );
 };
 
-export default MapComponent;
+export default Map;

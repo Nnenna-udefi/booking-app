@@ -2,7 +2,7 @@ import React from "react";
 import { ServicesCard } from "./services/servicesCard";
 import Image from "next/image";
 import img5 from "@/assests/images/ghana.jpg";
-import logo from "@/assests/images/DC-logo.png";
+import logo from "@/assests/images/DC-logo-removebg.png";
 import { Gift, HandHeartIcon, TreeDeciduousIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -13,7 +13,7 @@ export const HomeSection = () => {
         <Image src={logo} alt="braids" width={500} height={500} className=" " />
       </div>
 
-      <div className="flex justify-between bg-gray-800 gap-10 text-white p-12 items-center">
+      <div className="block md:flex justify-between bg-gray-800 gap-10 text-white p-12 items-center">
         <Image
           src={img5}
           alt="braids"
@@ -42,7 +42,7 @@ export const HomeSection = () => {
       </div>
 
       <div className="md:flex block gap-6 justify-between p-12">
-        <div>
+        <div className="mt-2">
           <Gift size={40} />
           <h2 className="text-xl uppercase font-bold my-2">Friendly Team</h2>
           <p>
@@ -50,7 +50,7 @@ export const HomeSection = () => {
             the quality of our services and interaction with you.
           </p>
         </div>
-        <div>
+        <div className="mt-2">
           <HandHeartIcon size={40} />
           <h2 className="text-xl uppercase font-bold my-2">Best Hands</h2>
           <p>
@@ -58,7 +58,7 @@ export const HomeSection = () => {
             hair braiding services to our clients.
           </p>
         </div>
-        <div>
+        <div className="mt-2">
           <TreeDeciduousIcon size={40} />
           <h2 className="text-xl uppercase font-bold my-2">
             Perfect Atmosphere

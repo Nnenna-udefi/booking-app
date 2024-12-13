@@ -20,7 +20,6 @@ export const ServicesCard = () => {
               alt={services.text}
               width={500}
               height={500}
-              layout="responsive"
               className=""
             />
             <div className="p-8 bg-white flex gap-3 items-center justify-center flex-col">

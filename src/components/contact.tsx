@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import dynamic from "next/dynamic";
+
 import { BookMarkedIcon, Mail, PhoneCall } from "lucide-react";
 import MapComponent from "./ui/map";
 
@@ -36,8 +36,14 @@ export const Contact = () => {
 
         <p>Walk-Ins and Same day appointment are based on availability only.</p>
       </div>
-      <div className="my-6" style={{ width: "700px", height: "500px" }}>
+      <div className="my-6 w-full">
         {/* <MapComponent /> */}
+        <iframe
+          width="100%"
+          height="400px"
+          src="https://api.mapbox.com/styles/v1/nnennaudefi/cm4mj2mv2002c01r088gz3dee.html?title=false&access_token=pk.eyJ1Ijoibm5lbm5hdWRlZmkiLCJhIjoiY2x2cW0xa21vMGFrbzJpbWg5bjd6eHlpYSJ9.tS6PeVRuZ3kCFY3EjaG8Og&zoomwheel=false#9.54/40.6979/-73.98"
+          title="Booking-app-location"
+        ></iframe>
       </div>
     </div>
   );

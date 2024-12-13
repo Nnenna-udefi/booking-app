@@ -8,13 +8,15 @@ const About = () => {
         About Us
       </h1>
 
-      <div className="md:flex block  justify-between gap-10 my-6">
-        <Image src={img3} alt="braids" className="w-1/4 " />
+      <div className="md:flex block justify-between gap-10 my-6">
+        <div className="bg-gray-500 p-8 w-full mb-3">
+          <Image src={img3} alt="braids" className="w-full" />
+        </div>
         <div className="">
           <p className="font-bold text-xl">Welcome to DC Hair Braiding!</p>
 
           <p className="leading-10 tracking-wider mt-10">
-            With over 23 years of experience, we specialize in creating
+            With over 10 years of experience, we specialize in creating
             beautiful and unique hair braids for our clients. Our team of
             professionals is dedicated to providing the highest quality service
             and ensuring that every customer leaves feeling confident and

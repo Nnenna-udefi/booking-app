@@ -17,14 +17,16 @@ export const Nav = () => {
   return (
     <div className="flex text-lg justify-between items-center py-5 px-8 bg-white">
       <Image src={logo} alt="logo" className="w-32" />
-      <ul className="flex gap-6 underline">
+      <ul className="flex gap-6 ">
         {navItems.map((items) => {
           const isActive = pathname === items.href;
           return (
             <li
               key={items.id}
               className={`${
-                isActive ? `bg-pink-300 p-2 text-uppercase no-underline` : `p-2`
+                isActive
+                  ? `bg-pink-300 italic text-pink-800 p-2 text-uppercase no-underline`
+                  : `p-2 underline`
               }`}
             >
               {" "}
