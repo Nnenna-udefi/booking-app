@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "CommonJS", // Use CommonJS if you want Node.js compatibility
+    "module": "CommonJS",
+    "outDir": "dist",
     "rootDir": "./",
-    "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true, // Ensure compatibility with CommonJS modules
-    "resolveJsonModule": true
-  }
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
