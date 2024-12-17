@@ -6,8 +6,14 @@ import { bookingsRouter } from "./src/routes/bookings";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const corsOptions = {
+  origin: ["https://dc-braiding.onrender.com", "http://localhost:3000"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
 // Middleware
-app.use(cors({ origin: "https://dc-braiding.onrender.com/" }));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
