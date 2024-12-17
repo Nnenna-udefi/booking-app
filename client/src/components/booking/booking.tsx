@@ -1,6 +1,6 @@
 "use client";
-import { Nav } from "@/components/nav";
-import { BookingSection } from "@/utils/constants";
+import { Nav } from "../nav";
+import { BookingSection } from "../../utils/constants";
 import { useParams } from "next/navigation";
 import React from "react";
 import { BookingForm } from "./bookingForm";

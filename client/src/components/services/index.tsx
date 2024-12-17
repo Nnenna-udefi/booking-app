@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BookingSection } from "@/utils/constants";
+import { BookingSection } from "../../utils/constants";
 
 export const Service = () => {
   return (

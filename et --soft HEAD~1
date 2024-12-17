@@ -1,0 +1,107 @@
+[33mcommit 98ee32fc3fff7f1ee02e58ed2aa587d071b2370a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Tue Dec 17 10:45:21 2024 +0100
+
+    mn
+
+[33mcommit b92c36fd3f15982877b2f5b81fb6868a84b00ab9[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Tue Dec 17 10:41:33 2024 +0100
+
+    Remove node_modules and .next from the repository
+
+[33mcommit 651010e53e955e8cabfffd7a397fdde23a0c9e81[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Tue Dec 17 10:20:37 2024 +0100
+
+    moved frontend to client folder
+
+[33mcommit 0d31aa05c0ab964e7d3dc7af7b60d3a99f35efc1[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Tue Dec 17 10:11:57 2024 +0100
+
+    moved the frontend files to the client folder to enable deployment to work
+
+[33mcommit 0f8f2681486badbd42fa52b1b4e686d68d626d7b[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Mon Dec 16 11:48:26 2024 +0100
+
+    render ignore
+
+[33mcommit 29a83938caa759c9b3aecbd3868b561a167ed634[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Mon Dec 16 11:28:00 2024 +0100
+
+    npm ignore
+
+[33mcommit 1d1f20932570399a2cca9b3f1cff978124caef0e[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Mon Dec 16 11:09:14 2024 +0100
+
+    server build command
+
+[33mcommit 05a5d26df4bb77116c9e0702d4631c35c8a75179[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Fri Dec 13 10:44:24 2024 +0100
+
+    setting up the map using mapbox
+
+[33mcommit 9e77f0b5dc170198f2bd09cf492e710db5eba7f0[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Tue Dec 10 15:03:30 2024 +0100
+
+    added logo to navbar
+
+[33mcommit d4a09f323d092743525e33bf0afa39908381d575[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Tue Dec 10 14:59:50 2024 +0100
+
+    updated site layout
+
+[33mcommit 0f5d0818d3c62e299abbdf45cfc0774bdfa025a1[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Wed Dec 4 22:25:56 2024 +0100
+
+    font family setup
+
+[33mcommit 02252bc1f75b8a6dde38756b5fae7cca1b3d1476[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Mon Dec 2 11:48:56 2024 +0100
+
+    about us page
+
+[33mcommit f168a19f4dbe6799be67b6cae4f2bb49503aadaf[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Thu Nov 28 23:38:58 2024 +0100
+
+    mondo db setup
+
+[33mcommit 33da7a7cf7ae4bc038f7d7a96fdb56e0cde15dd9[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Thu Nov 28 23:38:41 2024 +0100
+
+    mongo db set up
+
+[33mcommit 866f921e55496601ef31461a91f5a06b625be3d0[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Thu Nov 28 21:35:53 2024 +0100
+
+    admin dashboard
+
+[33mcommit 306901e6602df935e4476f9b18162dd7397e8929[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Wed Nov 27 07:02:28 2024 +0100
+
+    handled cors error
+
+[33mcommit 816ab1ce3746ba3683307ce47b150954c876701e[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Tue Nov 26 07:18:33 2024 +0100
+
+    booking page server
+
+[33mcommit 3842647984261d58a6959df0c056be0a09cbaad0[m
+Author: Nnenna-udefi <miriamudefi@gmail.com>
+Date:   Fri Nov 22 09:49:37 2024 +0100
+
+    booking-app

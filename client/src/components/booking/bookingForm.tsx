@@ -1,4 +1,4 @@
-import { BookingSection } from "@/utils/constants";
+import { BookingSection } from "../../utils/constants";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";

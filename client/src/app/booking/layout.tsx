@@ -1,5 +1,5 @@
-import { ShellLayout } from "@/components/sharedLayout";
-import { createMetaData } from "@/utils/helper";
+import { ShellLayout } from "../../components/sharedLayout";
+import { createMetaData } from "../../utils/helper";
 
 export const metadata = createMetaData({
   title: "Booking | DCHairs",
