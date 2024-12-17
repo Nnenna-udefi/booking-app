@@ -13,7 +13,7 @@ export const LoadingSpinner = ({
     <div role="status">
       <svg
         aria-hidden="true"
-        className={`animate-spin fill-blue-600 text-gray-200 dark:text-gray-600 ${
+        className={`animate-spin fill-blue-600 text-black dark:text-gray-600 ${
           sizeClass[size || "default"]
         }`}
         viewBox="0 0 100 101"
