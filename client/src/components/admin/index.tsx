@@ -44,13 +44,17 @@ export const Admin = () => {
     setBookings(updatedBookings);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ status: newStatus }),
-      });
+      const response = await fetch(
+        `
+https://dc-braiding-gqwc.onrender.com/api/bookings/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ status: newStatus }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(
@@ -72,6 +76,7 @@ export const Admin = () => {
   if (loading) return;
   <div className="grid h-full place-items-center">
     <LoadingSpinner />
+    <p>Loading...</p>
   </div>;
 
   if (error)
