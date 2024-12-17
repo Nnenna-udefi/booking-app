@@ -73,11 +73,13 @@ https://dc-braiding-gqwc.onrender.com/api/bookings/${id}`,
     (booking) => booking.status === "Awaiting"
   );
 
-  if (loading) return;
-  <div className="grid h-full place-items-center">
-    <LoadingSpinner />
-    <p>Loading...</p>
-  </div>;
+  if (loading) {
+    return (
+      <div className="grid h-full place-items-center">
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   if (error)
     return (
