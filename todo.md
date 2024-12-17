@@ -36,6 +36,7 @@ onSubmit({ service, date, time });
 };
 
 return (
+
 <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4">
 <label className="text-lg">Select a Service</label>
 <select
@@ -133,6 +134,7 @@ console.log(result);
 };
 
 return (
+
 <div className="container mx-auto p-4">
 <h1 className="text-2xl font-bold mb-4">Book an Appointment</h1>
 <BookingForm onSubmit={handleBookingSubmit} />
@@ -192,3 +194,5 @@ Fetch Bookings in Admin Page: Use fetch or axios to request the bookings data fr
 Route Protection (Optional): If you want the dashboard accessible only by the client, consider adding a simple access code check or hide the route unless they know the exact URL.
 
 With this setup, the client can have a visually structured way to view bookings directly in the app instead of accessing a raw JSON API.
+
+make admin a protected route

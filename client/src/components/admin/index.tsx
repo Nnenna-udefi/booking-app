@@ -10,7 +10,7 @@ export const Admin = () => {
 
   useEffect(() => {
     async function fetchBookings() {
-      const url = "http://localhost:5000/api/bookings";
+      const url = "https://dc-braiding-gqwc.onrender.com/api/bookings";
       try {
         const response = await fetch(url);
         if (!response.ok) {
