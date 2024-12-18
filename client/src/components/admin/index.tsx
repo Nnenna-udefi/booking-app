@@ -2,6 +2,7 @@
 import { Search } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { LoadingSpinner } from "../ui/loadingSpinner";
+import toast from "react-hot-toast";
 
 export const Admin = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
@@ -18,10 +19,9 @@ export const Admin = () => {
         }
 
         const data = await response.json();
-        console.log(data);
         setBookings(data);
       } catch (error: any) {
-        console.error(error.message);
+        toast.error(error.message);
       } finally {
         setLoading(false);
       }
@@ -62,7 +62,11 @@ https://dc-braiding-gqwc.onrender.com/api/bookings/${id}`,
         );
       }
     } catch (error) {
-      console.error("Failed to update booking status:", error);
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("An unexpected error occurred.");
+      }
     }
   };
 

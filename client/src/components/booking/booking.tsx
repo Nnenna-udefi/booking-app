@@ -1,10 +1,8 @@
 "use client";
-import { Nav } from "../nav";
 import { BookingSection } from "../../utils/constants";
 import { useParams } from "next/navigation";
 import React from "react";
 import { BookingForm } from "./bookingForm";
-
 export const Booking = () => {
   const { id } = useParams();
 
@@ -24,7 +22,7 @@ export const Booking = () => {
     });
 
     if (!response.ok) {
-      console.error("Error posting booking:", response.statusText);
+      throw new Error(`Response status: ${response.status}`);
       return;
     }
 
