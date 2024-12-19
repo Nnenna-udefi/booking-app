@@ -91,3 +91,18 @@ export const BookingSection = [
     price: "#12,000",
   },
 ];
+
+export const customStyles = {
+  headCells: {
+    style: {
+      backgroundColor: "#0096FF",
+      color: "#fff",
+    },
+  },
+  table: {
+    style: {
+      fontSize: "16px",
+      border: "1px solid #7393B3",
+    },
+  },
+};
