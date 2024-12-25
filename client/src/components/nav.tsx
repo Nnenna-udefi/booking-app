@@ -21,7 +21,7 @@ export const Nav = () => {
     setNav(!nav);
   };
   return (
-    <div className="flex text-lg justify-between items-center py-5 px-8 bg-white">
+    <div className="flex text-lg justify-between items-center md:py-5 py-3 md:px-8 px-4 bg-white">
       <Image src={logo} alt="logo" className="w-32" />
 
       <ul className="md:flex hidden gap-6 ">
@@ -71,13 +71,16 @@ export const Nav = () => {
         />
 
         {navItems.map((item) => (
-          <li key={item.id} className="hover:text-pnk hover:font-bold py-2">
+          <li
+            key={item.id}
+            className="hover:text-pnk hover:font-bold py-2 text-sm"
+          >
             <Link href={item.href}>{item.text}</Link>
           </li>
         ))}
 
         <Link href="/booking">
-          <button className="bg-black text-white px-3 mt-10 py-2 rounded-md">
+          <button className="bg-black text-white px-3 mt-16 py-2 text-sm rounded-md">
             Book Now
           </button>
         </Link>

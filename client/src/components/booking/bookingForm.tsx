@@ -100,9 +100,12 @@ export const BookingForm = ({
         Braiding. To better serve you, we will need at least 48 hours notice
         prior to your appointment date. If this is a last minute booking, please
         give us a call at (301) 559-2940 to confirm your appointment. Walk-Ins
-        are based on availabilty.
+        are based on availability.
       </p>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4 w-3/4">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4 p-4 md:w-3/4 w-full"
+      >
         {service ? (
           <div className="flex gap-2 items-center text-lg">
             <label className="text-lg">Service:</label>
