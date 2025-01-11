@@ -22,10 +22,11 @@ export const HomeSection = () => {
           layout="responsive"
           className="h-[500px]"
         />
-        <div className="text-xl">
+        <div>
           <p className="my-2">
-            DC Hair Braiding is one of the premier hair braiding salons in
-            Maryland, frequented not only by women but by men and kids as well.
+            <span className="italic text-xl">DC Hair Braiding</span> is one of
+            the premier hair braiding salons in Maryland, frequented not only by
+            women but by men and kids as well.
           </p>
           <p className="mb-6">
             Our hair salon has earned an incredible reputation as our

@@ -32,7 +32,7 @@ export const Nav = () => {
               key={items.id}
               className={`${
                 isActive
-                  ? `bg-pink-300 italic text-pink-800 p-2 text-uppercase no-underline`
+                  ? `italic p-2 underline-offset-4 underline text-uppercase `
                   : `p-2 underline`
               }`}
             >

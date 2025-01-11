@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Search } from "lucide-react";
 import logo from "@/assests/images/DC-logo-removebg.png";
 import { customStyles } from "@/utils/constants";
+import { AdminNav } from "./adminNav";
 
 interface Booking {
   id: number;
@@ -140,7 +141,7 @@ export const Admin = () => {
       cell: (row: Booking) => (
         <button
           onClick={() => handleStatusChange(row.id, row.status)}
-          className={`px-2 py-1 rounded-md text-white ${
+          className={`px-2 text-[12px] py-1 rounded-md text-white ${
             row.status === "Awaiting" ? "bg-yellow-500" : "bg-green-500"
           }`}
         >
@@ -151,49 +152,52 @@ export const Admin = () => {
   ];
 
   return (
-    <div className="bg-white p-8">
-      <div className="flex font-bold justify-between items-center border-b-2">
-        <Image src={logo} alt="logo" className="w-20" />
-        <h1>Welcome, Admin</h1>
-      </div>
+    <div className="bg-white p-4">
+      <AdminNav />
 
-      <div className="md:flex block my-8 gap-4">
-        <div className="bg-blue-200 my-2 rounded-md p-4">
-          <h1>No of Bookings</h1>
-          <p>{bookings.length}</p>
+      <div className="md:ml-[180px]">
+        <div className="md:block flex justify-between items-center border-b-2 font-bold">
+          <Image src={logo} alt="logo" className="w-20 md:hidden block" />
+          <h1>Welcome, Admin</h1>
         </div>
-        <div className="bg-blue-200 my-2 rounded-md p-4">
-          <h1>No of confirmed bookings</h1>
-          <p>{bookings.filter((b) => b.status === "Confirmed").length}</p>
+        <div className="md:flex block my-8 gap-4">
+          <div className="bg-blue-200 my-2 rounded-md p-4">
+            <h1>No of Bookings</h1>
+            <p>{bookings.length}</p>
+          </div>
+          <div className="bg-blue-200 my-2 rounded-md p-4">
+            <h1>No of confirmed bookings</h1>
+            <p>{bookings.filter((b) => b.status === "Confirmed").length}</p>
+          </div>
+          <div className="bg-blue-200 my-2 rounded-md p-4">
+            <h1>No of Awaiting bookings</h1>
+            <p>{bookings.filter((b) => b.status === "Awaiting").length}</p>
+          </div>
         </div>
-        <div className="bg-blue-200 my-2 rounded-md p-4">
-          <h1>No of Awaiting bookings</h1>
-          <p>{bookings.filter((b) => b.status === "Awaiting").length}</p>
-        </div>
-      </div>
 
-      <h1 className="text-3xl mb-4">Bookings</h1>
+        <h1 className="text-3xl mb-4">Bookings</h1>
 
-      <div className="mb-4 relative flex justify-end">
-        <input
-          type="text"
-          placeholder="Search bookings..."
-          value={filterText}
-          onChange={(e) => setFilterText(e.target.value)}
-          className="border bg-none rounded-md text-black p-2 w-full md:w-1/3"
+        <div className="mb-4 relative flex justify-end">
+          <input
+            type="text"
+            placeholder="Search bookings..."
+            value={filterText}
+            onChange={(e) => setFilterText(e.target.value)}
+            className="border bg-none rounded-md text-black p-2 w-full md:w-1/3"
+          />
+          <Search className="absolute right-2 top-2 z-10 " />
+        </div>
+
+        <DataTable
+          columns={columns}
+          data={filteredBookings}
+          pagination
+          highlightOnHover
+          responsive
+          striped
+          customStyles={customStyles}
         />
-        <Search className="absolute right-2 top-2 z-10 " />
       </div>
-
-      <DataTable
-        columns={columns}
-        data={filteredBookings}
-        pagination
-        highlightOnHover
-        responsive
-        striped
-        customStyles={customStyles}
-      />
     </div>
   );
 };

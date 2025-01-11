@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { LoadingSpinner } from "./ui/loadingSpinner";
 
 export const IsAuth: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -19,12 +20,16 @@ export const IsAuth: React.FC<{ children: React.ReactNode }> = ({
 
   // While determining authentication status, show nothing or a loading spinner
   if (isAuthenticated === null) {
-    return null; // You can return a loading spinner if needed
+    return (
+      <div className="flex items-center h-screen justify-center">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   // If not authenticated, return nothing (or a fallback)
   if (!isAuthenticated) {
-    return null;
+    redirect("/");
   }
 
   return <>{children}</>;
