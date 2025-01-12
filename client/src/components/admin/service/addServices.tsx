@@ -37,7 +37,9 @@ export const AddServices = () => {
     formDataToSend.append("price", formData.price);
     formDataToSend.append("duration", formData.duration);
     if (image) {
-      formDataToSend.append("image", image);
+      formDataToSend.append("image", image); // Appending the image file
+    } else {
+      console.error("No image selected"); // Add some debug logging
     }
 
     try {
@@ -133,6 +135,7 @@ export const AddServices = () => {
           </label>
           <input
             type="file"
+            name="image"
             id="image"
             accept="image/*"
             onChange={handleImageChange}
