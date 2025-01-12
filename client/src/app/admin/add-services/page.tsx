@@ -1,21 +1,22 @@
+import { AddServices } from "@/components/admin/service/addServices";
 import { AdminNav } from "@/components/admin/adminNav";
-import { EditServices } from "@/components/admin/editServices";
 import React from "react";
+import { Toaster } from "react-hot-toast";
 
-const EditServicesPage = () => {
+const AddServicesPage = () => {
   return (
     <div>
       <AdminNav />
-
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="md:ml-[180px]">
         <div className="md:block flex justify-between items-center border-b-2 font-bold">
           {/* <Image src={logo} alt="logo" className="w-20 md:hidden block" /> */}
-          <h1 className="ml-8">Edit Services</h1>
+          <h1 className="ml-8">Add Services</h1>
         </div>
       </div>
-      <EditServices serviceId={0} />
+      <AddServices />
     </div>
   );
 };
 
-export default EditServicesPage;
+export default AddServicesPage;

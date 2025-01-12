@@ -1,15 +1,12 @@
+"use client";
 import { useParams } from "next/navigation";
 
 import React from "react";
 import { EditServicesForm } from "./editServices";
-import { AdminNav } from "../adminNav";
+import { AdminNav } from "../../adminNav";
 
 export const EditServices = () => {
-  const { serviceId } = useParams(); // Retrieve serviceId from the route
-
-  if (!serviceId) {
-    return <div>Loading...</div>; // Handle loading state for serviceId
-  }
+  const { serviceId } = useParams();
 
   return (
     <div>
@@ -19,7 +16,13 @@ export const EditServices = () => {
           <h1 className="ml-8">Edit Services</h1>
         </div>
       </div>
-      <EditServicesForm serviceId={Number(serviceId)} />
+      {serviceId ? (
+        <EditServicesForm serviceId={Number(serviceId)} />
+      ) : (
+        <p className="flex items-center h-screen justify-center">
+          No Service Available
+        </p>
+      )}
     </div>
   );
 };

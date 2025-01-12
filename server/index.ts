@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { connectToDatabase } from "./src/database";
 import { bookingsRouter } from "./src/routes/bookings";
+import { servicesRouter } from "./src/routes/services";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/bookings", bookingsRouter);
+app.use("/api/services", servicesRouter);
 
 // Database Connection
 connectToDatabase()

@@ -8,7 +8,7 @@ import {
 
 export const servicesRouter = Router();
 
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ limits: { fileSize: 5 * 1024 * 1024 } }); // Limit to 5MB
 
 servicesRouter.post("/", upload.single("image"), createService);
 servicesRouter.get("/", getAllServices);

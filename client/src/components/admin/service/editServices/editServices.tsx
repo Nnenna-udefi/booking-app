@@ -2,16 +2,7 @@
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-import { LoadingSpinner } from "../../ui/loadingSpinner";
-
-interface Service {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  duration: string;
-  image: File | null;
-}
+import { LoadingSpinner } from "../../../ui/loadingSpinner";
 
 export const EditServicesForm = ({ serviceId }: { serviceId: number }) => {
   const [service, setService] = useState<Service | null>(null);

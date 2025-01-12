@@ -23,9 +23,12 @@ export const createService = async (req: Request, res: Response) => {
   try {
     const db = getDatabase();
     const result = await db.collection("services").insertOne(newService);
+    console.log("Received Request:", req.body);
+    console.log("File Upload:", req.file);
 
     if (result.acknowledged) {
       // Respond with the inserted document
+
       res.status(201).json({
         message: "Service confirmed",
         service: { id: result.insertedId.toString(), ...newService },

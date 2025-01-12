@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { AdminNav } from "./adminNav";
-import Image from "next/image";
-
-import logo from "@/assests/images/DC-logo-removebg.png";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 export const AddServices = () => {
   const [formData, setFormData] = useState({
@@ -49,7 +45,6 @@ export const AddServices = () => {
         "https://dc-braiding-gqwc.onrender.com/api/services",
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
           body: formDataToSend,
         }
       );
@@ -71,7 +66,10 @@ export const AddServices = () => {
   };
   return (
     <div className="bg-white p-8">
-      <form onSubmit={handleSubmit} className="my-8 space-y-4">
+      <form
+        onSubmit={handleSubmit}
+        className="md:ml-[180px] ml-0 my-8 space-y-4"
+      >
         <div>
           <label htmlFor="name" className="block font-medium">
             Service Name
@@ -105,7 +103,7 @@ export const AddServices = () => {
             Price in Naira
           </label>
           <input
-            type="number"
+            type="text"
             id="price"
             name="price"
             value={formData.price}
@@ -116,7 +114,7 @@ export const AddServices = () => {
         </div>
         <div>
           <label htmlFor="duration" className="block font-medium">
-            Duration (in minutes)
+            Duration (in hours)
           </label>
           <input
             type="number"

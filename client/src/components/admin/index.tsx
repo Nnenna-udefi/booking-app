@@ -107,7 +107,7 @@ export const Admin = () => {
       cell: (row: Booking, index: number) => <div>{index + 1}</div>,
     },
     {
-      name: "Client's Name",
+      name: "Name",
       selector: (row: Booking) => row.name || "N/A",
       sortable: true,
     },
@@ -131,10 +131,12 @@ export const Admin = () => {
     {
       name: "Time",
       selector: (row: Booking) => row.time || "N/A",
+      width: "70px",
     },
     {
       name: "Price",
       selector: (row: Booking) => row.price || "N/A",
+      width: "100px",
     },
     {
       name: "Status",

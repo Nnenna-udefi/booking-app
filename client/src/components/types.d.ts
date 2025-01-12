@@ -19,3 +19,12 @@ type BookingData = {
   email: string;
   phoneNumber: string;
 };
+
+interface Service {
+  id: number;
+  name: string;
+  description: string;
+  price: string;
+  duration: string;
+  image: File | null;
+}
