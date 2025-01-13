@@ -6,7 +6,7 @@ import { EditServicesForm } from "./editServices";
 import { AdminNav } from "../../adminNav";
 
 export const EditServices = () => {
-  const { serviceId } = useParams();
+  const { id } = useParams();
 
   return (
     <div>
@@ -16,8 +16,8 @@ export const EditServices = () => {
           <h1 className="ml-8">Edit Services</h1>
         </div>
       </div>
-      {serviceId ? (
-        <EditServicesForm serviceId={Number(serviceId)} />
+      {id ? (
+        <EditServicesForm id={String(id)} />
       ) : (
         <p className="flex items-center h-screen justify-center">
           No Service Available

@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
 import { LoadingSpinner } from "../../../ui/loadingSpinner";
 
-export const EditServicesForm = ({ serviceId }: { serviceId: number }) => {
+export const EditServicesForm = ({ id }: { id: string }) => {
   const [service, setService] = useState<Service | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +11,7 @@ export const EditServicesForm = ({ serviceId }: { serviceId: number }) => {
     async function fetchServiceDetails() {
       try {
         const response = await fetch(
-          `https://dc-braiding-gqwc.onrender.com/api/services/${serviceId}`
+          `https://dc-braiding-gqwc.onrender.com/api/services/${id}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch service details");
@@ -30,7 +29,7 @@ export const EditServicesForm = ({ serviceId }: { serviceId: number }) => {
       }
     }
     fetchServiceDetails();
-  }, [serviceId]);
+  }, [id]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -53,7 +52,7 @@ export const EditServicesForm = ({ serviceId }: { serviceId: number }) => {
 
     try {
       const response = await fetch(
-        `https://dc-braiding-gqwc.onrender.com/api/services/${serviceId}`,
+        `https://dc-braiding-gqwc.onrender.com/api/services/${id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

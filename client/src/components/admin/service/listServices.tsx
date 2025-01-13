@@ -103,33 +103,35 @@ export const ListServices = () => {
       selector: (row: Service) => row.name || "N/A",
       sortable: true,
     },
-    {
-      name: "Image",
-      cell: (row: Service) => {
-        const imageUrl =
-          row.image instanceof File
-            ? URL.createObjectURL(row.image)
-            : row.image || "/placeholder-image.png";
+    //     {
+    //       name: "Image",
+    //       cell: (row: Service) => {
+    //        const imageUrl =
+    //   row.image instanceof File
+    //     ? URL.createObjectURL(row.image) // Use object URL for file objects
+    //     : row.image && (row.image.startsWith('http') || row.image.startsWith('/'))
+    //     ? row.image // Use image URL if valid
+    //     : "/placeholder-image.png"; // Fallback image if not valid
 
-        return (
-          <Image
-            src={imageUrl}
-            alt={row.name || "Service Image"}
-            className="w-52"
-            width={200}
-            height={150}
-          />
-        );
-      },
-      sortable: true,
-    },
+    // return (
+    //   <Image
+    //     src={imageUrl}
+    //     alt={row.name || "Service Image"}
+    //     className="w-52"
+    //     width={200}
+    //     height={150}
+    //   />
+    // );
+    //       },
+    //       sortable: true,
+    //     },
     {
-      name: "Price",
+      name: "Price (#)",
       selector: (row: Service) => row.price || "N/A",
       sortable: true,
     },
     {
-      name: "Duration",
+      name: "Duration (hours)",
       selector: (row: Service) => row.duration || "N/A",
     },
 
@@ -139,7 +141,7 @@ export const ListServices = () => {
         <div className="flex gap-3">
           <button
             onClick={() => handleEdit(row.id)}
-            className="bg-green-500 text-white w-10"
+            className="bg-green-500 rounded-md p-2 text-white w-10"
           >
             Edit
           </button>
@@ -149,7 +151,7 @@ export const ListServices = () => {
               setSelectedService(row);
               setIsModalOpen(true);
             }}
-            className="bg-red-500 text-white w-10"
+            className="bg-red-500 text-white w-16 rounded-md p-2"
           >
             Delete
           </button>

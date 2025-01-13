@@ -8,9 +8,6 @@ export const createService = async (req: Request, res: Response) => {
   const { name, description, duration, price } = req.body;
   const image = req.file?.path;
 
-  console.log("Received Request Body:", req.body); // Log the body
-  console.log("Uploaded File:", req.file);
-
   if (!image) {
     res.status(400).json({ message: "Image is required" });
     return;
@@ -59,6 +56,38 @@ export const getAllServices = async (req: Request, res: Response) => {
   } catch (err: any) {
     console.error("Error fetching services:", err);
     res.status(500).json({ message: "Failed to fetch services" });
+  }
+};
+
+export const getOneService = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    if (!ObjectId.isValid(id)) {
+      res.status(400).json({ message: "Invalid service ID" });
+      return;
+    }
+
+    const db = getDatabase();
+    const service = await db.collection("services").findOne({
+      _id: new ObjectId(id),
+    });
+
+    if (!service) {
+      res.status(404).json({ message: "Service not found" });
+      return;
+    }
+
+    const formattedService = {
+      ...service,
+      id: service._id.toString(),
+      _id: undefined,
+    };
+
+    res.status(200).json(formattedService);
+  } catch (err: any) {
+    console.error("Error fetching service:", err);
+    res.status(500).json({ message: "Failed to fetch service" });
   }
 };
 
