@@ -3,6 +3,7 @@ import cors from "cors";
 import { connectToDatabase } from "./src/database";
 import { bookingsRouter } from "./src/routes/bookings";
 import { servicesRouter } from "./src/routes/services";
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // Routes
 app.use("/api/bookings", bookingsRouter);

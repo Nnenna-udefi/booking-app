@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  images: {
+    domains: ["dc-braiding-gqwc.onrender.com"],
+  },
 };
 
 export default nextConfig;

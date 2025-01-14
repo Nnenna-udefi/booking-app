@@ -26,5 +26,5 @@ interface Service {
   description: string;
   price: string;
   duration: string;
-  image: File | null;
+  image: File;
 }

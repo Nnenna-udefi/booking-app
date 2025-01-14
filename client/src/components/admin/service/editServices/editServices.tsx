@@ -87,7 +87,7 @@ export const EditServicesForm = ({ id }: { id: string }) => {
     );
   }
   return (
-    <div className="bg-white p-4">
+    <div className="bg-white p-4 md:ml-[180px]">
       <form onSubmit={handleFormSubmit} className="mt-6">
         <div className="mb-4">
           <label htmlFor="name" className="block font-bold">
