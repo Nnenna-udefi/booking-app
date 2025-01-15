@@ -7,7 +7,7 @@ import { ObjectId } from "mongodb";
 export const createService = async (req: Request, res: Response) => {
   const { name, description, duration, price } = req.body;
   const image = req.file?.path;
-
+  console.log("Uploaded file:", req.file);
   if (!image) {
     res.status(400).json({ message: "Image is required" });
     return;
@@ -42,6 +42,7 @@ export const createService = async (req: Request, res: Response) => {
   }
 };
 export const getAllServices = async (req: Request, res: Response) => {
+  console.log("get services");
   try {
     const db = getDatabase();
     const services = await db.collection("services").find().toArray();
