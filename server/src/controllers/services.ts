@@ -100,20 +100,22 @@ export const updateService: RequestHandler = async (
   const image = req.file?.path;
 
   // Validate the service ID
-  if (!ObjectId.isValid(id)) {
-    res.status(400).json({ message: "Invalid service ID" });
+  const trimmedId = id.trim();
+  if (!ObjectId.isValid(trimmedId)) {
+    res.status(400).json({ message: "Invalid service ID format" });
     return;
   }
+  const objectId = new ObjectId(id);
 
   const updateData: any = { name, description, price, duration };
   if (image) {
-    updateData.image = image; // Add the new image path if provided
+    updateData.image = image;
   }
 
   try {
     const db = getDatabase();
     const result = await db.collection("services").findOneAndUpdate(
-      { _id: new ObjectId(id) }, // Query with the valid ObjectId
+      { _id: objectId }, // Query with the valid ObjectId
       { $set: updateData },
       { returnDocument: "after" }
     );
