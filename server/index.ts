@@ -4,6 +4,7 @@ import { connectToDatabase } from "./src/database";
 import { bookingsRouter } from "./src/routes/bookings";
 import { servicesRouter } from "./src/routes/services";
 import path from "path";
+import fs from "fs";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,7 +18,12 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static("uploads"));
+
+const uploadsDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true }); // Create the directory if it doesn't exist
+}
 
 // Routes
 app.use("/api/bookings", bookingsRouter);
