@@ -22,6 +22,7 @@ export const Service = () => {
         }
         const data = await response.json();
         setServices(data);
+        console.log(data);
       } catch (error: any) {
         toast.error(error.message);
       } finally {

@@ -99,20 +99,24 @@ export const updateService: RequestHandler = async (
   const { name, description, price, duration } = req.body;
   const image = req.file?.path;
 
-  try {
-    const updateData: any = { name, description, price, duration };
-    if (image) {
-      updateData.image = image; // Add the new image path if provided
-    }
+  // Validate the service ID
+  if (!ObjectId.isValid(id)) {
+    res.status(400).json({ message: "Invalid service ID" });
+    return;
+  }
 
+  const updateData: any = { name, description, price, duration };
+  if (image) {
+    updateData.image = image; // Add the new image path if provided
+  }
+
+  try {
     const db = getDatabase();
-    const result = await db
-      .collection("services")
-      .findOneAndUpdate(
-        { _id: new ObjectId(id) },
-        { $set: updateData },
-        { returnDocument: "after" }
-      );
+    const result = await db.collection("services").findOneAndUpdate(
+      { _id: new ObjectId(id) }, // Query with the valid ObjectId
+      { $set: updateData },
+      { returnDocument: "after" }
+    );
 
     if (!result?.value) {
       res.status(404).json({ message: "Service not found" });
@@ -122,7 +126,7 @@ export const updateService: RequestHandler = async (
     const updatedService = {
       ...result.value,
       id: result.value._id.toString(),
-      _id: undefined,
+      _id: undefined, // Removing the MongoDB _id
     };
 
     res.status(200).json({

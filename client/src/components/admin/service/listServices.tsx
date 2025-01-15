@@ -40,10 +40,12 @@ export const ListServices = () => {
     fetchServices();
   }, []);
 
-  const filteredBookings = services.filter(
+  const filteredService = services.filter(
     (service) =>
-      service.name.toLowerCase().includes(filterText.toLowerCase()) ||
-      service.description.toLowerCase().includes(filterText.toLowerCase())
+      service.name?.toLowerCase().includes(filterText.toLowerCase()) ||
+      "" ||
+      service.description?.toLowerCase().includes(filterText.toLowerCase()) ||
+      ""
   );
 
   const handleEdit = (serviceId: number) => {
@@ -185,7 +187,7 @@ export const ListServices = () => {
 
         <DataTable
           columns={columns}
-          data={filteredBookings}
+          data={filteredService}
           pagination
           highlightOnHover
           responsive

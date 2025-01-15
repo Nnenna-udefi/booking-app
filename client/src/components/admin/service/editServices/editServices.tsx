@@ -8,6 +8,7 @@ export const EditServicesForm = ({ id }: { id: string }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(id);
     async function fetchServiceDetails() {
       try {
         const response = await fetch(
@@ -55,8 +56,7 @@ export const EditServicesForm = ({ id }: { id: string }) => {
         `https://dc-braiding-gqwc.onrender.com/api/services/${id}`,
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(service),
+          body: formData,
         }
       );
       if (!response.ok) {
