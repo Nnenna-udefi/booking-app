@@ -22,7 +22,11 @@ export const AdminNav = () => {
   };
   return (
     <div className=" text-lg justify-between items-center md:py-5 py-3 md:px-8 px-4 bg-white">
-      <div className="fixed md:block hidden left-0 top-0 w-[180px] bg-white pl-4 h-full text-gray-700 border-r border-r-gray-700  ease-in-out duration-500">
+      <div
+        className={`fixed md:block hidden left-0 top-0 w-[180px] bg-white pl-4 h-full text-gray-700 border-r border-r-gray-700 ease-in-out duration-500 ${
+          nav ? "z-50" : "z-10"
+        }`}
+      >
         <Image src={logo} alt="logo" className="w-32 mt-4" />
 
         <ul className="gap-2">
@@ -58,8 +62,8 @@ export const AdminNav = () => {
       <ul
         className={
           nav
-            ? "fixed md:hidden z-auto left-0 top-0 w-[30%]  p-4 h-full text-gray-700 border-r border-r-gray-700 bg-white ease-in-out duration-500"
-            : "ease-in-out w-[60%]   duration-500 fixed top-0 bottom-0 left-[-100%]"
+            ? "fixed md:hidden mr-[150px] left-0 top-0 w-[30%] p-4 h-full text-gray-700 border-r border-r-gray-700 bg-white ease-in-out duration-500"
+            : "ease-in-out w-[60%] mr-[150px] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
         <Image

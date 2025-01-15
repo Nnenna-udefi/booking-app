@@ -14,7 +14,7 @@ export const Service = () => {
 
   useEffect(() => {
     async function fetchServices() {
-      const url = "https://dc-braiding-gqwc.onrender.com/api/services";
+      const url = "http://localhost:5000/api/services";
       try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -22,7 +22,6 @@ export const Service = () => {
         }
         const data = await response.json();
         setServices(data);
-        console.log("API response:", data);
       } catch (error: any) {
         toast.error(error.message);
       } finally {
@@ -62,7 +61,7 @@ export const Service = () => {
             >
               <div>
                 <Image
-                  src={`/${service.image}`}
+                  src={`https://dc-braiding-gqwc.onrender.com/${service.image}`}
                   alt={service.name}
                   height={300}
                   width={300}
