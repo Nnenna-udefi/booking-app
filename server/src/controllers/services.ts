@@ -135,3 +135,30 @@ export const updateService: RequestHandler = async (
     res.status(500).json({ message: "Failed to update service" });
   }
 };
+
+export const deleteService: RequestHandler = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Validate the service ID
+    if (!ObjectId.isValid(id)) {
+      res.status(400).json({ message: "Invalid service ID" });
+      return;
+    }
+
+    const db = getDatabase();
+    const result = await db
+      .collection("services")
+      .deleteOne({ _id: new ObjectId(id) });
+
+    if (result.deletedCount === 0) {
+      res.status(404).json({ message: "Service not found" });
+      return;
+    }
+
+    res.status(200).json({ message: "Service deleted successfully" });
+  } catch (err: any) {
+    console.error("Error deleting service:", err);
+    res.status(500).json({ message: "Failed to delete service" });
+  }
+};

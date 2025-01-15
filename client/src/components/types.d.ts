@@ -28,3 +28,12 @@ interface Service {
   duration: string;
   image: File;
 }
+
+interface Services {
+  id: number;
+  name: string;
+  description: string;
+  price: string;
+  duration: string;
+  image: string;
+}

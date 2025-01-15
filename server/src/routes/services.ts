@@ -5,6 +5,7 @@ import {
   getAllServices,
   updateService,
   getOneService,
+  deleteService,
 } from "../controllers/services";
 import upload from "../uploadMiddleware";
 
@@ -14,3 +15,4 @@ servicesRouter.post("/", upload, createService);
 servicesRouter.get("/", getAllServices);
 servicesRouter.get("/:id", getOneService);
 servicesRouter.put("/:id", updateService);
+servicesRouter.delete("/:id", deleteService);

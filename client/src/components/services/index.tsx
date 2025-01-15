@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { LoadingSpinner } from "../ui/loadingSpinner";
 
 export const Service = () => {
-  const [services, setServices] = useState<Service[]>([]);
+  const [services, setServices] = useState<Services[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
 
