@@ -42,7 +42,6 @@ export const createService = async (req: Request, res: Response) => {
   }
 };
 export const getAllServices = async (req: Request, res: Response) => {
-  console.log("get services");
   try {
     const db = getDatabase();
     const services = await db.collection("services").find().toArray();
