@@ -17,7 +17,7 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(process.cwd() + "/uploads"));
 
 // Routes
 app.use("/api/bookings", bookingsRouter);
