@@ -22,7 +22,6 @@ export const Service = () => {
         }
         const data = await response.json();
         setServices(data);
-        console.log(data);
       } catch (error: any) {
         toast.error(error.message);
       } finally {
@@ -66,7 +65,7 @@ export const Service = () => {
                   alt={service.name}
                   height={300}
                   width={300}
-                  className="w-[300px] h-[300px] object-cover"
+                  className="w-full h-[300px] object-cover"
                 />
               </div>
               <div className="p-4 bg-white flex gap-2 items-center justify-center flex-col">

@@ -19,8 +19,7 @@ export const HomeSection = () => {
           alt="braids"
           width={500}
           height={500}
-          layout="responsive"
-          className="h-[500px]"
+          className="h-[300px] w-full"
         />
         <div>
           <p className="my-2">

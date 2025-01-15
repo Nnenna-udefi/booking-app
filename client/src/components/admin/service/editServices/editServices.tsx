@@ -49,7 +49,7 @@ export const EditServicesForm = ({ id }: { id: string }) => {
     if (service?.image instanceof File) {
       formData.append("image", service.image);
     }
-    console.log(id);
+
     try {
       const response = await fetch(
         `https://dc-braiding-gqwc.onrender.com/api/services/${id}`,

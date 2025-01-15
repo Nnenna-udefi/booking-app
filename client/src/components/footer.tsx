@@ -7,13 +7,7 @@ export const Footer = () => {
   return (
     <div className="bg-gray-700 p-8 flex flex-col justify-between items-center text-center text-white">
       <div className="w-[200px]">
-        <Image
-          src={Logo}
-          alt="logo"
-          layout="responsive"
-          width={100}
-          height={100}
-        />
+        <Image src={Logo} alt="logo" width={100} height={100} priority />
       </div>
       <div className="md:flex block my-3 gap-6">
         <p>Email Address: dcbraids@gmail.com</p>

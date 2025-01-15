@@ -37,9 +37,9 @@ export const AddServices = () => {
     formDataToSend.append("price", formData.price);
     formDataToSend.append("duration", formData.duration);
     if (image) {
-      formDataToSend.append("image", image); // Appending the image file
+      formDataToSend.append("image", image);
     } else {
-      console.error("No image selected"); // Add some debug logging
+      console.error("No image selected");
     }
 
     try {

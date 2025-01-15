@@ -21,8 +21,8 @@ export const Nav = () => {
     setNav(!nav);
   };
   return (
-    <div className="flex text-lg justify-between items-center md:py-5 py-3 md:px-8 px-4 bg-white">
-      <Image src={logo} alt="logo" className="w-32" />
+    <div className="flex text-lg border border-b w-full justify-between items-center md:py-5 py-3 md:px-8 px-4 bg-white">
+      <Image src={logo} alt="logo" className="w-32" priority />
 
       <ul className="md:flex hidden gap-6 ">
         {navItems.map((items) => {

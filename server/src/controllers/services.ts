@@ -7,7 +7,7 @@ import { ObjectId } from "mongodb";
 export const createService = async (req: Request, res: Response) => {
   const { name, description, duration, price } = req.body;
   const image = req.file?.path;
-  console.log("Uploaded file:", req.file);
+
   if (!image) {
     res.status(400).json({ message: "Image is required" });
     return;
@@ -23,8 +23,6 @@ export const createService = async (req: Request, res: Response) => {
   try {
     const db = getDatabase();
     const result = await db.collection("services").insertOne(newService);
-    console.log("Received Request:", req.body);
-    console.log("File Upload:", req.file);
 
     if (result.acknowledged) {
       // Respond with the inserted document
