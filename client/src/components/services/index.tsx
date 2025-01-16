@@ -14,7 +14,7 @@ export const Service = () => {
 
   useEffect(() => {
     async function fetchServices() {
-      const url = "http://localhost:5000/api/services";
+      const url = "https://dc-braiding-gqwc.onrender.com/api/services";
       try {
         const response = await fetch(url);
         if (!response.ok) {
