@@ -23,8 +23,9 @@ app.use("/uploads", express.static("uploads"));
 const uploadsDir = path.join(process.cwd(), "uploads");
 
 if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true }); // Create the directory if it doesn't exist
+  fs.mkdirSync(uploadsDir, { recursive: true });
 }
+console.log(`Serving uploads from: ${path.join(process.cwd(), "uploads")}`);
 
 // Routes
 app.use("/api/bookings", bookingsRouter);
