@@ -54,25 +54,26 @@ export const Service = () => {
           Our Services
         </h2>
         <div className="md:grid grid-cols-3 mt-6 justify-center block  gap-6">
-          {services.map((service) => (
+          {BookingSection.map((service) => (
             <div
               key={service.id}
               className="border border-black w-[300px] hover:opacity-90  my-4 "
             >
               <div>
                 <Image
-                  src={`https://dc-braiding-gqwc.onrender.com/${service.image}`}
-                  alt={service.name}
+                  // src={`https://dc-braiding-gqwc.onrender.com/${service.image}`}
+                  src={service.img}
+                  alt={service.text}
                   height={300}
                   width={300}
                   className="w-full h-[300px] object-cover"
                 />
               </div>
               <div className="p-4 bg-white flex gap-2 items-center justify-center flex-col">
-                <p className="text-2xl font-bold">{service.name}</p>
-                <p className="my-2 text-center">{service.description}</p>
+                <p className="text-2xl font-bold">{service.text}</p>
+                <p className="my-2 text-center">{service.desc}</p>
                 <hr className="w-full my-2 border border-black" />
-                <p>{service.duration} hours</p>
+                <p>{service.time} hours</p>
                 <p>{service.price}</p>
                 <Link href={`/booking/${service.id}`}>
                   <button className="bg-black hover:bg-white hover:text-black text-white p-4 rounded-md">

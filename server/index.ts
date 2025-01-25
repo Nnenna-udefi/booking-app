@@ -18,8 +18,10 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/uploads", express.static("uploads"));
-
+app.use("/uploads", express.static("uploads"), (req, res, next) => {
+  console.log("Requested file:", req.path);
+  next();
+});
 const uploadsDir = path.join(process.cwd(), "uploads");
 
 if (!fs.existsSync(uploadsDir)) {

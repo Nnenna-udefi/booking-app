@@ -51,7 +51,6 @@ export const getAllServices = async (req: Request, res: Response) => {
     }));
 
     res.status(200).json(formattedServices);
-    console.log("Formatted Service", formattedServices);
   } catch (err: any) {
     console.error("Error fetching services:", err);
     res.status(500).json({ message: "Failed to fetch services" });
