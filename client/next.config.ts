@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
         pathname: "/uploads/**",
       },
     ],
+    domains: ["saranbraid.com"],
   },
 };
 

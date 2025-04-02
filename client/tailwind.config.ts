@@ -12,6 +12,14 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        poppins: "var(--font-poppins)",
+        philosopher: "var(--font-philosopher)",
+      },
+      backgroundImage: {
+        about: "url('/image/Twist.jpeg')",
+        hero: "url('/image/watermelon.jpeg')",
+      },
     },
   },
   plugins: [],

@@ -21,7 +21,7 @@ export const Nav = () => {
     setNav(!nav);
   };
   return (
-    <div className="flex text-lg border border-b w-full justify-between items-center md:py-5 py-3 md:px-8 px-4 bg-white">
+    <div className="flex  text-lg md:text-xl border rounded-full mt-2 mx-2 border-black  justify-between items-center md:py-3 py-0 md:px-8 px-2 bg-white">
       <Image src={logo} alt="logo" className="w-32" priority />
 
       <ul className="md:flex hidden gap-6 ">
@@ -32,8 +32,8 @@ export const Nav = () => {
               key={items.id}
               className={`${
                 isActive
-                  ? `italic p-2 underline-offset-4 underline text-uppercase `
-                  : `p-2 underline`
+                  ? `p-2 underline uppercase text-[#5936ae]`
+                  : `p-2 uppercase`
               }`}
             >
               {" "}
@@ -43,14 +43,14 @@ export const Nav = () => {
         })}
       </ul>
       <Link href="/booking" className="md:block hidden">
-        <button className="bg-black text-white px-3 py-2 rounded-md">
+        <button className="bg-black text-white px-6 py-4 rounded-md transformation-all hover:scale-105 duration-30">
           Book Now
         </button>
       </Link>
 
       <div onClick={handleNav} className="block md:hidden cursor-pointer">
         {nav ? (
-          <X size={20} className="text-black fixed" />
+          <X size={20} className="text-black fixed right-10" />
         ) : (
           <Menu size={20} />
         )}

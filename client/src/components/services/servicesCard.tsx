@@ -5,26 +5,33 @@ import Link from "next/link";
 
 export const ServicesCard = () => {
   return (
-    <div>
-      <h2 className="text-center underline uppercase font-bold text-3xl">
+    <div className="">
+      <h2 className="text-center text-white uppercase font-philosopher font-bold text-3xl">
         Our Services
       </h2>
-      <div className="flex flex-col justify-center items-center">
+      <Image
+        src="https://saranbraid.com/wp-content/themes/saran-african-hair-brading/images/head-tag.png"
+        alt="heading"
+        width={300}
+        height={300}
+        className="img-fluid fill d-block mx-auto"
+      />
+      <div className="flex md:flex-row flex-col w-fit justify-center gap-4 items-center">
         {BookingSection.slice(0, 2).map((services) => (
           <div
             key={services.id}
-            className="md:flex block border border-black w-3/4 my-4 hover:opacity-90"
+            className=" border border-black block md:flex h-full  my-4 hover:opacity-90"
           >
             <Image
               src={services.img}
               alt={services.text}
-              width={500}
-              height={500}
-              className=""
+              width={300}
+              height={300}
+              className="w-[300px] h-[300px]"
             />
-            <div className="p-8 bg-white flex gap-3 items-center justify-center flex-col">
+            <div className="p-2 bg-white flex gap-2 items-center justify-center flex-col">
               <p className="text-3xl font-bold">{services.text}</p>
-              <p className="my-2 text-center">{services.desc}</p>
+              <p className="py-2 text-center">{services.desc}</p>
               <hr className=" my-4 border w-full border-black" />
               <p>{services.time}</p>
               <p>{services.price}</p>
@@ -38,7 +45,7 @@ export const ServicesCard = () => {
         ))}
       </div>
       <Link href="/services" className="flex justify-center items-center ">
-        <button className=" text-black text-lg underline hover:border-black hover:border hover:no-underline p-2 rounded-md">
+        <button className=" text-white text-lg hover:underline hover:border-black hover:border py-2 px-6 uppercase bg-[#c4a82f]  shadow-lg rounded-md">
           See More
         </button>
       </Link>

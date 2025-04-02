@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Poppins, Philosopher } from "next/font/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["400", "600"],
+  subsets: ["latin"],
+});
+
+const philosopher = Philosopher({
+  variable: "--font-philosopher",
+  weight: ["400", "700"],
+  subsets: ["latin"],
 });
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
@@ -42,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ParkinsansBold.variable}  ${ParkinsansRegular.variable}  ${ParkinsansMedium.variable}antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${philosopher.variable} ${poppins.variable} ${ParkinsansBold.variable}  ${ParkinsansRegular.variable}  ${ParkinsansMedium.variable}antialiased`}
       >
         {children}
       </body>

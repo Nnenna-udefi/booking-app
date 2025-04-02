@@ -48,16 +48,19 @@ export const Service = () => {
   }
 
   return (
-    <div className="p-8">
+    <div className="bg-[#5936ae] mt-8">
       <div className="flex  flex-col justify-center items-center">
-        <h2 className="text-center text-3xl font-bold underline">
-          Our Services
-        </h2>
-        <div className="md:grid grid-cols-3 mt-6 justify-center block  gap-6">
+        <div className=" relative text-center w-full flex flex-col justify-center items-center  text-white bg-hero bg-cover h-96 bg-center bg-no-repeat py-10 px-4">
+          <div className="bg-black/80 absolute inset-0"></div>
+          <h2 className="relative text-center  font-bold underline font-philosopher py-4 text-2xl md:text-6xl uppercase ">
+            What We Offer
+          </h2>
+        </div>
+        <div className="p-8 md:grid grid-cols-3 mt-6 place-content-center justify-center block  gap-6">
           {BookingSection.map((service) => (
             <div
               key={service.id}
-              className="border border-black w-[300px] hover:opacity-90  my-4 "
+              className="border border-black w-[300px] bg-white hover:opacity-90  my-4 "
             >
               <div>
                 <Image
